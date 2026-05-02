@@ -1,0 +1,84 @@
+* {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+window {
+  background-color: rgba(25, 22, 34, 0.6);
+  color: #e1e1e6;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Outer bar container */
+#outer-box {
+  margin: 0px;
+}
+
+/* Inner bar container */
+#inner-box {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* slightly darker background to match style */
+  border-radius: 4px;
+  border: 2px solid rgba(45, 42, 54, 1); /* matching border color */
+  padding: 5px;
+  margin: 5px;
+}
+
+/* Button and image */
+button,
+image {
+  background: none;
+  color: #e1e1e6; /* color adjustment for consistency */
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 0 10px;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: rgba(
+    45,
+    42,
+    54,
+    1
+  ); /* hover background matches button style */
+  color: #e1e1e6;
+}
+
+#category-button {
+  color: rgba(0, 0, 0, 0);
+}
+
+#category-button:hover {
+  background: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+}
+
+#pinned-box {
+  padding-bottom: 5px;
+  color: #ff0000; /* keeps the red text as in the second code */
+}
+
+#files-box {
+  padding: 5px;
+  border-radius: 15px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* consistent background for files box */
+  border: none;
+  outline: none;
+}

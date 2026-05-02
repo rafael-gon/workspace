@@ -1,112 +1,131 @@
 {
-	"layer": "top",
-	"position": "top",
-	"height": 24,
-	"modules-left": [
-		"sway/workspaces"
-	],
-	"modules-center": [
-		"clock"
-	],
-	"modules-right": [
-		"tray",
-		"pulseaudio",
-		"bluetooth",
-		"battery",
-		"custom/notification"
-	],
-	"sway/workspaces": {
-		"disable-scroll": true,
-		"disable-markup": false,
-		"all-outputs": false,
-		"format": "  {icon}  ",
-		"format-icons": {
-			"1": "一",
-			"2": "二",
-			"3": "三",
-			"4": "四",
-			"5": "五",
-			"6": "六",
-			"7": "七",
-			"8": "八",
-			"9": "九",
-			"10": "十",
-			"11": "一",
-			"12": "二",
-			"13": "三",
-			"14": "四",
-			"15": "五",
-			"16": "六",
-			"17": "七",
-			"18": "八",
-			"19": "九",
-			"20": "十"
-		}
-	},
-	"custom/notification": {
-		"format": "",
-		"on-click": "swaync-client -t",
-		"tooltip": false
-	},
-	"tray": {
-		"icon-size": 14,
-		"spacing": 28,
-		"tooltip": false
-	},
-	"clock": {
-		"format": "{:%a, %b %d | %H:%M}",
-		"interval": 1,
-		"tooltip-format": "<tt>{calendar}</tt>"
-	},
-	"battery": {
-		"states": {
-			"good": 95,
-			"warning": 20,
-			"critical": 7
-		},
-		"format": "{icon}",
-		"tooltip": false,
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-	},
-	"network": {
-		"format-wifi": "",
-		"format-ethernet": "",
-		"format-disconnected": "⚠",
-		"interval": 7,
-		"tooltip": false,
-		"on-click": "alacritty --class='float' -e nmtui"
-	},
-	"bluetooth": {
-		"format": "{icon}",
-		"format-icons": {
-			"enabled": "󰂯",
-			"disabled": "󰂲"
-		},
-		"tooltip": false,
-		"on-click": "alacritty --class='float' -e bluetuith"
-	},
-	"pulseaudio": {
-		"format": "{icon}",
-		"tooltip-format": " {volume}%",
-		"format-muted": "",
-		"format-icons": {
-			"headphones": "",
-			"handsfree": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": [
-				"",
-				""
-			]
-		},
-		"on-click": "pavucontrol"
-	}
+  "layer": "bottom",
+  "position": "top",
+  "height": 48,
+  "margin-top": 12,
+  "margin-left": 12,
+  "margin-right": 12,
+  "modules-left": [
+    "custom/menu",
+    "sway/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "battery",
+    "custom/notification",
+    "custom/bar"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": " {icon} ",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+      "11": "一",
+      "12": "二",
+      "13": "三",
+      "14": "四",
+      "15": "五",
+      "16": "六",
+      "17": "七",
+      "18": "八",
+      "19": "九",
+      "20": "十"
+    }
+  },
+  "custom/menu": {
+    "format": "apps",
+    "on-click": "exec nwg-drawer -ovl -is 128 -c 9 -spacing 70",
+    "tooltip": false
+  },
+  "custom/bar": {
+    "format": "power_settings_new",
+    "on-click": "exec nwg-bar",
+    "tooltip": false
+  },
+  "custom/notification": {
+    "format": "notifications",
+    "on-click": "swaync-client -t",
+    "tooltip": false
+  },
+  "tray": {
+    "spacing": 12,
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%a, %b %d | %H:%M}",
+    "tooltip": false,
+    "interval": 1,
+    "on-click": "kitty --class=float -e fish -c 'calcurse; sleep 10'"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 20,
+      "critical": 7
+    },
+    "format": "{icon}",
+    "format-icons": [
+      "battery_android_alert",
+      "battery_android_0",
+      "battery_android_1",
+      "battery_android_2",
+      "battery_android_3",
+      "battery_android_4",
+      "battery_android_5",
+      "battery_android_6",
+      "battery_android_full"
+    ],
+    "tooltip-format": "{capacity}%"
+  },
+  "network": {
+    "format-wifi": "wifi",
+    "format-ethernet": "settings_ethernet",
+    "format-disconnected": "wifi_off",
+    "interval": 7,
+    "on-click": "kitty --class='float' -e nmtui",
+    "tooltip": false
+  },
+  "bluetooth": {
+    "format": "{icon}",
+    "format-icons": {
+      "enabled": "bluetooth",
+      "disabled": "bluetooth_disabled"
+    },
+    "on-click": "kitty --class='float' -e bluetuith"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "volume_off",
+    "format-icons": {
+      "headphone": "headphones",
+      "hands-free": "earbuds_2",
+      "headset": "headset_mic",
+      "phone": "mobile_sound",
+      "phone-muted": "mobile_sound_off",
+      "default": [
+        "volume_mute",
+        "volume_down",
+        "volume_up"
+      ]
+    },
+    "format-bluetooth": "media_bluetooth_on",
+    "on-click": "pavucontrol",
+    "tooltip-format": "{volume}%"
+  }
 }

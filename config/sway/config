@@ -5,9 +5,9 @@ set $alt Mod1
 set $hdmi HDMI-A-1
 set $edp eDP-1
 
-set $term alacritty
+set $term kitty
 
-set $menu ulauncher
+set $menu wofi
 
 set $lock swaylock \
         --screenshots \
@@ -32,7 +32,7 @@ set $lock swaylock \
         --text-ver-color 00ff00
 
 #-#-#-#-#-#-#-#-#-# General #-#-#-#-#-#-#-#-#-#
-font pango:monospace 8
+font pango:UbuntuMono 8
 
 floating_modifier $mod normal
 
@@ -45,34 +45,16 @@ exec avizo-service
 
 exec swaync
 
-# exec nm-applet
-
-# exec blueman-applet
-
-exec flatpak run io.github.mimbrero.WhatsAppDesktop
-
-exec discord
-
-exec flatpak run io.github.brunofin.Cohesion
-
 exec swaymsg "workspace 1"
 
 #-#-#-#-#-#-#-#-#-# Output #-#-#-#-#-#-#-#-#-#
-output * bg ~/.local/share/wallpapers/Wallpaper_01.png fill
+output * bg ~/.local/share/Wallpapers/Wallpaper.png fill
 
-# 2560X1080
 output HDMI-A-1 resolution 2560x1080 position 0,0
 output eDP-1 resolution 1920x1080 position 2560,0
 
 #-#-#-#-#-#-#-#-#-# Input #-#-#-#-#-#-#-#-#-#
-# input "1267:12522:ELAN0B00:00_04F3:30EA_Touchpad" {
-#   dwt enabled
-#   tap enabled
-#   natural_scroll enabled
-#   middle_emulation enabled
-# }
-
-input type:touchpad{
+input type:touchpad {
   dwt enabled
   tap enabled
   natural_scroll enabled
@@ -80,46 +62,64 @@ input type:touchpad{
 }
 
 input type:pointer {
-  accel_profile flat
-  pointer_accel 0
+  accel_profile adaptive
+  pointer_accel -0.2
   natural_scroll enabled
 }
+
 input type:keyboard {
   xkb_layout "us"
   xkb_variant "alt-intl"
 }
 
-# input "1452:591:Keychron_Keychron_K3" {
-#   xkb_layout "us"
-#   xkb_variant "alt-intl"
-# }
-
-# input "1:1:AT_Translated_Set_2_keyboard" {
-#   xkb_layout "us"
-#   xkb_variant "alt-intl"
-# }
-
 #-#-#-#-#-#-#-#-#-# For Windows #-#-#-#-#-#-#-#-#-#
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 4
 
 for_window [app_id="ulauncher"] border none; blur none
 
 for_window [app_id="pavucontrol"] floating enable; move position center
 
-for_window [app_id="emote"] floating enable; move position center
-
 for_window [app_id="float"] floating enable; move position center
 
-for_window [class="whatsapp-desktop-linux"] move container to workspace $ws11
-for_window [class="discord"] move container to workspace $ws12
-for_window [class="cohesion"] move container to workspace $ws13
+for_window [app_id="nwg-drawer"] floating enable
+for_window [app_id="nwg-drawer"] fullscreen enable
+
+for_window [app_id="nwg-bar"] floating enable
+for_window [app_id="nwg-bar"] fullscreen enable
+
+for_window [class="discord"] move container to workspace $ws11
+
+#-#-#-#-#-#-#-#-#-# Layer Effects #-#-#-#-#-#-#-#-#-#
+layer_effects "waybar" {
+    blur enable;
+    blur_xray enable;
+    blur_ignore_transparent enable;
+    shadows enable;
+    corner_radius 8;
+}
+
+layer_effects "nwg-drawer" {
+    blur enable
+}
+
+layer_effects "nwg-bar" {
+    blur enable
+}
+
+layer_effects "wofi" {
+    blur enable
+}
 
 #-#-#-#-#-#-#-#-#-# Gaps #-#-#-#-#-#-#-#-#-#
 corner_radius 8
+
 blur enable
+blur_xray enable
+blur_passes 4
+blur_radius 8
 
 smart_borders on
 smart_gaps off
 
 gaps outer 0
-gaps inner 8
+gaps inner 12

@@ -1,111 +1,141 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: Roboto, "Font Awesome 5", "SFNS Display", Helvetica, Arial, sans-serif;
-  font-size: 10px;
-  min-height: 0;
+  font-family: "Hack Nerd Font", monospace;
+  font-size: 16px;
 }
 
-/*
---high  : #988BC7;
---indi  : #44475a;
---back  : #191622;
---fore  : #E1E1E6;
---red   : #E96379;
---green : #67E480;
-*/
+/* =======================
+   BASE DA BAR
+======================= */
 
 window#waybar {
-  background: #191622;
-  color: #E1E1E6;
+  background: rgba(25, 22, 34, 0.6);
+  color: #e1e1e6;
+
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
+/* Quando escondida */
 window#waybar.hidden {
-  opacity: 0.0;
+  opacity: 0;
 }
+
+/* =======================
+   LAYOUT
+======================= */
+
+.modules-left {
+}
+
+.modules-center {
+}
+
+.modules-right {
+}
+
+/* =======================
+   WORKSPACES
+======================= */
 
 #workspaces button {
-  padding: 0 12px;
+  padding: 6px 10px;
+  margin: 4px 3px;
+
   color: #44475a;
   font-weight: bold;
+
   border-bottom: 2px solid transparent;
+
+  min-height: 32px;
 }
 
 #workspaces button:hover {
-  color: #988BC7;
+  color: #988bc7;
+  background: transparent;
   box-shadow: none;
-  text-shadow: none;
-  background: none;
 }
 
 #workspaces button.focused {
-  color: #988BC7;
-  border-bottom: 2px solid #988BC7;
+  color: #988bc7;
+  border-bottom: 2px solid #988bc7;
 }
 
 #workspaces button.urgent {
-  background-color: #E96379;
+  background-color: #e96379;
 }
+
+/* =======================
+   MÓDULOS DIREITA
+======================= */
 
 #battery,
 #network,
 #pulseaudio,
 #bluetooth,
-#custom-notification {
-  padding: 0 8px;
-  margin: 0 10px;
-  font-size: 12px;
-  color: #E1E1E6;
+#custom-notification,
+#custom-menu,
+#custom-bar {
+  font-family: "Material Symbols Rounded";
+  padding: 6px 12px;
+  margin: 4px 4px;
+  min-height: 32px;
 }
+
+/* =======================
+   STATES
+======================= */
+
+#battery.charging {
+  color: #67e480;
+}
+
+#battery.critical:not(.charging) {
+  background: #e96379;
+  color: #e1e1e6;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+  to {
+    background-color: #e1e1e6;
+    color: #191622;
+  }
+}
+
+#network.disconnected,
+#pulseaudio.muted {
+  color: #e96379;
+}
+
+/* =======================
+   TRAY
+======================= */
 
 #tray {
   margin-right: 8px;
 }
 
-#custom-notification {
-  margin-right: 15px;
-}
-
-tooltip label {
-  padding: 10px 10px;
-  color: #E1E1E6;
-  font-size: 16px;
-}
+/* =======================
+   TOOLTIP
+======================= */
 
 tooltip {
   background: #191622;
-  border: 3px solid #988BC7;
+  border: 2px solid #988bc7;
+  border-radius: 8px;
 }
 
-#clock {
-  font-size: 14px;
+tooltip label {
+  padding: 8px;
+  color: #e1e1e6;
 }
 
-#battery.charging {
-  color: #67E480;
-}
+/* =======================
+   NOTIFICAÇÃO
+======================= */
 
-@keyframes blink {
-  to {
-    background-color: #E1E1E6;
-    color: #191622;
-  }
-}
-
-#battery.critical:not(.charging) {
-  background: #E96379;
-  color: #E1E1E6;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#network.disconnected {
-  color: #E96379;
-}
-
-#pulseaudio.muted {
-  color: #E96379;
+#custom-notification {
+  margin-right: 10px;
 }
