@@ -20,11 +20,12 @@ makepkg -si --noconfirm
 cd $USER_HOME
 
 # - - - - - Geral - - - - - #
-yay -Syyuu base-devel unzip unrar exa bat wget curl docker kitty noto-fonts \
+
+yay -Syyuu base-devel unzip unrar exa bat wget curl docker alacritty noto-fonts \
        noto-fonts-cjk noto-fonts-emoji noto-fonts-extra inter-font ttf-roboto \
        ttf-ubuntu-font-family ttf-material-icons-git bluez bluez-libs \
        bluez-plugins bluez-utils flatpak asdf-vm nerd-fonts qbittorrent \
-       discord dropbox vlc visual-studio-code-bin fastfetch fish starship \
+       discord dropbox vlc visual-studio-code-bin fastfetch zsh starship \
        google-chrome gnome-keyring wayland xorg-xwayland spotify lazygit ffmpeg github-desktop-bin --noconfirm
 
 asdf plugin add python https://github.com/asdf-community/asdf-python.git
@@ -53,15 +54,12 @@ xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-torrent
 xdg-mime default org.qbittorrent.qBittorrent.desktop x-scheme-handler/magnet
 
 # Gnome specific setup
-yay -S gnome-shell gnome-shell-extensions gdm gnome-backgrounds gnome-calculator gnome-calendar \
-       gnome-characters gnome-color-manager gnome-control-center gnome-font-viewer gnome-menus \
-       gnome-session gnome-settings-daemon gnome-software gnome-system-monitor gnome-text-editor \
-       loupe nautilus snapshot sushi xdg-desktop-portal-gnome xdg-user-dirs-gtk gnome-tweaks file-roller \
-       evince gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb  --noconfirm
+yay -S plasma-desktop bluedevil discover dolphin latte-dock sddm okular ark spectacle \
+           gwenview kdeconnect flatpak-kcm kde-gtk-config  kdeplasma-addons kinfocenter \
+           kpipewire kscreen kscreenlocker ksystemstats kwin plasma-nm plasma-pa plasma-sdk \
+           plasma-systemmonitor plasma-workspace sddm-kcm systemsettings xdg-desktop-portal-kde \
+           libdbusmenu-glib packagekit-qt5 --noconfirm
 
-xdg-mime default nautilus.desktop inode/directory
-xdg-mime default nautilus.desktop inode/directory application/x-gnome-saved-search
-
-sudo -n systemctl enable gdm
+sudo -n systemctl enable sddm
 
 kill "$!" 2>/dev/null
