@@ -23,14 +23,9 @@ cd $USER_HOME
 yay -Syyuu base-devel unzip unrar exa bat wget curl docker kitty noto-fonts \
        noto-fonts-cjk noto-fonts-emoji noto-fonts-extra inter-font ttf-roboto \
        ttf-ubuntu-font-family ttf-material-icons-git bluez bluez-libs \
-       bluez-plugins bluez-utils flatpak asdf-vm nerd-fonts qbittorrent \
-       discord dropbox vlc visual-studio-code-bin fastfetch fish starship \
-       google-chrome gnome-keyring wayland xorg-xwayland spotify lazygit ffmpeg github-desktop-bin --noconfirm
-
-asdf plugin add python https://github.com/asdf-community/asdf-python.git
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf plugin add java https://github.com/halcyon/asdf-java.git
-asdf plugin add rust https://github.com/code-lever/asdf-rust.git
+       bluez-plugins bluez-utils flatpak asdf-vm nerd-fonts  \
+       fastfetch fish starship gnome-keyring wayland \
+       xorg-xwayland spotify lazygit ffmpeg  --noconfirm
 
 sudo -n systemctl enable bluetooth
 sudo -n systemctl --user enable pipewire pipewire-pulse wireplumber
@@ -44,9 +39,21 @@ flatpak install flathub com.stremio.Stremio \
                 flathub net.pcsx2.PCSX2 \
                 flathub org.prismlauncher.PrismLauncher \
                 flathub com.snes9x.Snes9x \
+                flathub io.dbeaver.DBeaverCommunity \
                 flathub org.telegram.desktop \
-                flathub io.beekeeperstudio.Studio \
-                flathub me.timschneeberger.GalaxyBudsClient -y
+                flathub org.qbittorrent.qBittorrent \
+                flathub com.discordapp.Discord \
+                flathub com.dropbox.Client \
+                flathub org.videolan.VLC \
+                flathub com.visualstudio.code \
+                flathub com.google.Chrome \
+                flathub com.spotify.Client \
+                flathub io.github.shiftey.Desktop \
+                flathub com.getpostman.Postman \
+                flathub org.mozilla.thunderbird \
+                flathub com.heroicgameslauncher.hgl \
+                flathub com.valvesoftware.Steam \
+                flathub org.kde.krita -y
 
 xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-bittorrent
 xdg-mime default org.qbittorrent.qBittorrent.desktop application/x-torrent
